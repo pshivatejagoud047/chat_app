@@ -94,17 +94,16 @@ const API_BASE = 'https://chatapp-backend.onrender.com';
 
 ---
 
-## Step 6 — Deploy Frontend (Optional: Render Static Site)
+## Step 6 — Deploy the Frontend (Vercel)
 
-1. Click **"New +"** → Select **"Static Site"**
-2. Connect your same GitHub repository
-3. Configure:
-   - **Root Directory**: `frontend`
-   - **Build Command**: *(leave empty)*
-   - **Publish Directory**: `frontend`
-4. Click **"Create Static Site"**
+You can instantly deploy the frontend to Vercel. A `vercel.json` file has been provided to automatically configure the build!
 
-Your frontend will be available at: `https://chatapp-frontend.onrender.com`
+1. Open `frontend/app.js` and `frontend/chat.js`
+2. Change the `API_BASE` variable from `http://localhost:8080` to your **live Render backend URL** (e.g., `https://chatapp-backend.onrender.com`)
+3. Commit and push these changes to GitHub.
+4. Go to [Vercel](https://vercel.com/new).
+5. Import your GitHub repository.
+6. Click **Deploy**. Vercel will automatically read the `vercel.json` file and serve the `frontend` folder!
 
 ---
 

@@ -50,18 +50,11 @@ git push -u origin main
 3. Connect your GitHub repository
 4. Configure the service:
    - **Name**: `chatapp-backend`
-   - **Environment**: `Java`
+   - **Language/Environment**: Choose **Docker**
    - **Region**: Same as database
    - **Branch**: `main`
-   - **Build Command**:
-     ```
-     mvn clean package -DskipTests
-     ```
-   - **Start Command**:
-     ```
-     java -jar target/app.jar
-     ```
    - **Plan**: Free
+5. Render will automatically detect the **Dockerfile** in the repository and build it for you.
 
 ---
 

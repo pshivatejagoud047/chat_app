@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp – Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- SockJS + STOMP for WebSocket -->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7/bundles/stomp.umd.min.js"></script>
+</head>
+<body class="chat-body">
+
+    <div class="chat-app">
+
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <div class="my-avatar" id="myAvatar">?</div>
+                <div class="my-info">
+                    <span class="my-name" id="myName">Loading...</span>
+                    <span class="online-badge">● Online</span>
+                </div>
+                <button class="logout-btn" onclick="logout()" title="Logout">⏻</button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍  Search contacts..." oninput="filterContacts()">
+            </div>
+
+            <!-- Contacts List -->
+            <div class="contacts-label">CONTACTS</div>
+            <ul class="contacts-list" id="contactsList">
+                <li class="loading-contacts">Loading contacts...</li>
+            </ul>
+        </aside>
+
+        <!-- ===== MAIN CHAT AREA ===== -->
+        <main class="chat-main">
+
+            <!-- No chat selected state -->
+            <div class="chat-placeholder" id="chatPlaceholder">
+                <div class="placeholder-icon">💬</div>
+                <h2>Select a contact to start chatting</h2>
+                <p>Choose from your contact list on the left</p>
+            </div>
+
+            <!-- Active Chat -->
+            <div class="chat-window hidden" id="chatWindow">
+
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="contact-avatar-lg" id="chatAvatar">?</div>
+                    <div class="contact-info-lg">
+                        <span class="contact-name-lg" id="chatContactName"></span>
+                        <span class="contact-status-lg" id="chatContactStatus">Offline</span>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div class="messages-area" id="messagesArea">
+                    <!-- Messages rendered here by JS -->
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-area">
+                    <input
+                        type="text"
+                        id="messageInput"
+                        class="message-input"
+                        placeholder="Type a message..."
+                        onkeypress="handleKeyPress(event)"
+                        autocomplete="off"
+                    >
+                    <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

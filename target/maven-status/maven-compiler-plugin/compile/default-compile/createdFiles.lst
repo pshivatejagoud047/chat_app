@@ -1,0 +1,7 @@
+com\chatapp\repository\ChatMessageRepository.class
+com\chatapp\dto\LoginRequest.class
+com\chatapp\config\SecurityConfig.class
+com\chatapp\dto\MessageRequest.class
+com\chatapp\model\ChatMessage.class
+com\chatapp\config\CorsConfig.class
+com\chatapp\config\WebSocketConfig.class
